@@ -14,14 +14,25 @@
 	</div>
     <div class="fancy-day">
  
-	  
-	                   <%= @watchers.temp %> 
+	  	<% if (@watchers != nil) then %>
+		 <%= @watchers.temp %> 
+		<% else %>
+	 
+		<% end %>
+	        
  
      </div>
 	 </td>
 	
 	<td class="fancy-date ">
-		Last Updated: <%= time_ago_in_words(@watchers.created_at) %> ago  
+		Last Updated:
+		<% if (@watchers != nil) then %>
+		 <%= time_ago_in_words(@watchers.created_at) %>  ago  
+		<% else %>
+	 
+		<% end %>
+		
+		
 	</td>
 	     </tr>                              
 	
