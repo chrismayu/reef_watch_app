@@ -5,6 +5,9 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
+  gem 'jquery-fileupload-rails'
+  gem 'bootstrap-modal-rails'
 end
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
@@ -26,6 +29,14 @@ gem "better_errors", ">= 0.6.0", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "heroku"
+gem "rmagick"
+gem "mini_magick"
+gem "carrierwave"
+gem 'carrierwave_direct'
+gem "bootstrap-switch-rails"
+gem 'country_select'
+gem 'jquery-ui-rails'
+gem "font-awesome-rails"
 
 
 group :development, :test do

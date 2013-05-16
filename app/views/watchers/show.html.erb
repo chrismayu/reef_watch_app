@@ -1,0 +1,25 @@
+<%- model_class = Watcher -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:params) %>:</strong></dt>
+  <dd><%= @watcher.params %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:temp_name) %>:</strong></dt>
+  <dd><%= @watcher.temp_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:temp) %>:</strong></dt>
+  <dd><%= @watcher.temp %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              watchers_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_watcher_path(@watcher), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              watcher_path(@watcher),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
