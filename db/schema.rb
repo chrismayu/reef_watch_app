@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516172747) do
+ActiveRecord::Schema.define(:version => 20130516175259) do
+
+  create_table "reef_tanks", :force => true do |t|
+    t.string   "tank_name"
+    t.date     "setup_date"
+    t.date     "last_update"
+    t.integer  "current_temp"
+    t.string   "temp_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

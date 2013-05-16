@@ -1,11 +1,14 @@
 ReefWatchApp::Application.routes.draw do
-  resources :watchers
+  resources :reef_tanks
 
+
+  resources :watchers
+ root :to => "reef_tanks#index"
 
   authenticated :user do
-    root :to => 'home#index'
+   root :to => "reef_tanks#index"
   end
-  root :to => "home#index"
+ 
   devise_for :users
   resources :users
 end

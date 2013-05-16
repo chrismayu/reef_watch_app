@@ -1,0 +1,68 @@
+<%- model_class = ReefTank -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+	
+	
+	<tr style="border-top: 1px solid #eee; padding-top: 5px; margin-top: 5px">
+	  <td class="fancy-date ">
+	  <div class="fancy-weekday">
+		
+	                                             Temp
+	</div>
+    <div class="fancy-day">
+ 
+	  
+	                   <%= @watchers.temp %> 
+ 
+     </div>
+	 </td>
+	
+	<td class="fancy-date ">
+		Last Updated: <%= time_ago_in_words(@watchers.created_at) %> ago  
+	</td>
+	     </tr>                              
+	
+	
+	
+	
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:tank_name) %></th>
+      <th><%= model_class.human_attribute_name(:setup_date) %></th>
+      <th><%= model_class.human_attribute_name(:last_update) %></th>
+      <th><%= model_class.human_attribute_name(:current_temp) %></th>
+      <th><%= model_class.human_attribute_name(:temp_name) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reef_tanks.each do |reef_tank| %>
+      <tr>
+        <td><%= link_to reef_tank.id, reef_tank_path(reef_tank) %></td>
+        <td><%= reef_tank.tank_name %></td>
+        <td><%= reef_tank.setup_date %></td>
+        <td><%= reef_tank.last_update %></td>
+        <td><%= reef_tank.current_temp %></td>
+        <td><%= reef_tank.temp_name %></td>
+        <td><%=l reef_tank.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_reef_tank_path(reef_tank), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      reef_tank_path(reef_tank),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_reef_tank_path,
+            :class => 'btn btn-primary' %>
