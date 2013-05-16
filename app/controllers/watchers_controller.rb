@@ -1,6 +1,18 @@
 class WatchersController < ApplicationController
   # GET /watchers
   # GET /watchers.json
+  
+  protect_from_forgery :except => [:create]
+
+   def create
+     Watcher.create!(:params => params, :temp => params[:main_temp])
+     render :nothing => true
+    
+   end
+  
+  
+  
+  
   def index
     @watchers = Watcher.all
 
@@ -39,7 +51,7 @@ class WatchersController < ApplicationController
 
   # POST /watchers
   # POST /watchers.json
-  def create
+  def create_old
     @watcher = Watcher.new(params[:watcher])
 
     respond_to do |format|

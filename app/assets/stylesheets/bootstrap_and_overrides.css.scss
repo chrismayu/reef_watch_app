@@ -1,3 +1,54 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+
+
+
+/*------------------ Fancy Date -------------*/
+
+.fancy-month {
+  font-size: 1.1em;
+  color: #82b1e2;
+  padding-top: 20px;
+}
+
+.fancy-date {
+  color: #777;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.fancy-weekend {
+  color: #ff5e64;
+}
+
+.fancy-weekday {
+  margin-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1em;
+  font-size: 1.25em;
+}
+
+.fancy-day {
+  font-size: 2.5em;
+  text-align: center;
+  line-height: 1em;
+}
+
+.fancy-date.fancy-today {
+  color: #4e4e50;
+}
+
+.fancy-weekend.fancy-today {
+  color: #ff2d35;
+}
+
+.fancy-today-text {
+  text-transform: uppercase;
+  font-size: 0.85em;
+  color: #0b86d3;
+  text-align: center;
+  margin-bottom: -10px;
+}
