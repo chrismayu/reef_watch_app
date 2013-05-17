@@ -1,5 +1,9 @@
 class Watcher < ActiveRecord::Base
-  attr_accessible :params, :temp, :temp_name
+  attr_accessible :params, :temp, :temp_name,  :ambient_temp, :ph_level, :powerhead, :main_pump, :heater, :day_light
+  
+  
+ 
+  
   
     serialize :params
     after_create :update_temp_info

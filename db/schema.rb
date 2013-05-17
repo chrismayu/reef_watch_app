@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516175259) do
+ActiveRecord::Schema.define(:version => 20130517023330) do
 
   create_table "reef_tanks", :force => true do |t|
     t.string   "tank_name"
@@ -64,8 +64,14 @@ ActiveRecord::Schema.define(:version => 20130516175259) do
     t.text     "params"
     t.string   "temp_name"
     t.integer  "temp"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "ambient_temp"
+    t.integer  "ph_level"
+    t.boolean  "powerhead"
+    t.boolean  "main_pump"
+    t.boolean  "heater"
+    t.boolean  "day_light"
   end
 
 end
