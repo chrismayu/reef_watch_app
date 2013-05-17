@@ -5,10 +5,10 @@ class WatchersController < ApplicationController
   protect_from_forgery :except => [:create]
 
    def create
-     Watcher.create!(:params => params, :temp => params[:main_temp], :day_light=> params[:daylight], :powerhead => params[:powerhead], :ambient_temp => params[:ambient_temp], :main_pump => params[:main_pump], :heater => params[:heater]
+     Watcher.create!(:params => params, :temp => params[:main_temp], :temp_name => params[:tank_name], :day_light=> params[:daylight], :powerhead => params[:powerhead], :ambient_temp => params[:ambient_temp], :main_pump => params[:main_pump], :heater => params[:heater]
      )
     render :nothing => true
-    
+
    #  , :day_light=> params[:daylight], :powerhead => params[:powerhead], :ambient_temp => params[:ambient_temp], :ph_level => params[:ph_level, :main_pump => params[:main_pump], :heater => params[:heater]
    
    
