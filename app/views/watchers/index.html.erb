@@ -6,15 +6,11 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:params) %></th>
       <th><%= model_class.human_attribute_name(:temp_name) %></th>
       <th><%= model_class.human_attribute_name(:temp) %></th>
 
-      <th><%= model_class.human_attribute_name(:ambient_temp) %></th>
       <th><%= model_class.human_attribute_name(:powerhead) %></th>
       <th><%= model_class.human_attribute_name(:main_pump) %></th>
-      <th><%= model_class.human_attribute_name(:heater) %></th>
-       <th><%= model_class.human_attribute_name(:day_light) %></th>
 
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -24,15 +20,28 @@
     <% @watchers.each do |watcher| %>
       <tr>
         <td><%= link_to watcher.id, watcher_path(watcher) %></td>
-        <td><%= watcher.params %></td>
         <td><%= watcher.temp_name %></td>
-        <td><%= watcher.temp %></td>
-		<td><%= watcher.ambient_temp %></td>
-        <td><%= watcher.powerhead %></td>
-		<td><%= watcher.main_pump %></td>
-        <td><%= watcher.heater %></td>
-		<td><%= watcher.day_light %></td>
-        <td><%=l watcher.created_at %></td>
+        <td><%= number_with_precision(watcher.temp, :precision => 1)   %>°f</td>
+	
+        <td>		 <% if watcher.powerhead  == true %>
+				    <span class="label label-success">PH ON</span>
+					<%else%>	
+					<span class="label label-warning">PH OFF</span>
+					<%end%>
+		</td></td>
+		<td>
+
+		 <% if watcher.main_pump  == true %>
+		    <span class="label label-success">Pump ON</span>
+			<%else%>	
+			<span class="label label-warning">Pump OFF</span>
+			<%end%>
+</td>
+
+		     <td> <%= time_ago_in_words(watcher.created_at) %> ago </td>
+		        
+
+
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_watcher_path(watcher), :class => 'btn btn-mini' %>
