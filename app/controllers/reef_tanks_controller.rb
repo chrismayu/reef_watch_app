@@ -3,7 +3,7 @@ class ReefTanksController < ApplicationController
   # GET /reef_tanks.json
   def index
     @reef_tanks = ReefTank.all
-    @watchers = Watcher.last
+    @watchers = Watcher.first
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reef_tanks }
