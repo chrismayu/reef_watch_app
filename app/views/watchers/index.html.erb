@@ -7,10 +7,12 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:temp_name) %></th>
-      <th><%= model_class.human_attribute_name(:temp) %></th>
-
+      <th>Tank Temp</th>
+      <th>House Temp</th>
+ 
       <th><%= model_class.human_attribute_name(:powerhead) %></th>
       <th><%= model_class.human_attribute_name(:main_pump) %></th>
+      <th><%= model_class.human_attribute_name(:heater) %></th>
 
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -22,6 +24,7 @@
         <td><%= link_to watcher.id, watcher_path(watcher) %></td>
         <td><%= watcher.temp_name %></td>
         <td><%= number_with_precision(watcher.temp, :precision => 1)   %>°f</td>
+        <td><%= number_with_precision(watcher.ambient_temp, :precision => 1)   %>°f</td>
 	
         <td>		 <% if watcher.powerhead  == true %>
 				    <span class="label label-success">PH ON</span>
@@ -37,7 +40,14 @@
 			<span class="label label-warning">Pump OFF</span>
 			<%end%>
 </td>
+	<td>
 
+	 <% if watcher.heater  == true %>
+	    <span class="label label-success">Heater ON</span>
+		<%else%>	
+		<span class="label label-warning">Heater OFF</span>
+		<%end%>
+</td>
 		     <td> <%= time_ago_in_words(watcher.created_at) %> ago </td>
 		        
 
