@@ -2,7 +2,7 @@ class Watcher < ActiveRecord::Base
   attr_accessible :params, :temp, :temp_name,  :ambient_temp, :ph_level, :powerhead, :main_pump, :heater, :day_light
   
   
- 
+ default_scope order: 'watchers.created_at DESC'
   
   
     serialize :params
