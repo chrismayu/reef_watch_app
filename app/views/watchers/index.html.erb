@@ -4,13 +4,10 @@
 </div>
 
 
-
-
-<div id="annual"></div>
-
  
-<%= content_tag :div, "", id: "watchers_chart", data: {watchers: Watcher.chart_data} %>
- 
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -74,7 +71,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_watcher_path,
             :class => 'btn btn-primary' %>

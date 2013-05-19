@@ -25,9 +25,9 @@ class WatchersController < ApplicationController
   
   
   def index
-   @watchers = Watcher.all
-    
-   # @watchers = Watcher.paginate(page: params[:page], :per_page => 20)
+   @watcherschart = Watcher.all
+   # @watchers = Watcher.all
+    @watchers = Watcher.paginate(page: params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb
