@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519040506) do
+ActiveRecord::Schema.define(:version => 20130519223248) do
+
+  create_table "equipment", :force => true do |t|
+    t.text     "description"
+    t.string   "equipment_name"
+    t.string   "equipment_type"
+    t.string   "image"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "livestocks", :force => true do |t|
+    t.text     "description"
+    t.string   "common_name"
+    t.string   "scientific_name"
+    t.string   "image"
+    t.string   "livestock_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "reef_tanks", :force => true do |t|
     t.string   "tank_name"

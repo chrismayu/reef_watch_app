@@ -39,7 +39,7 @@ gem 'jquery-ui-rails'
 gem "font-awesome-rails"
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
-
+gem 'roo'
 
 group :development, :test do
 

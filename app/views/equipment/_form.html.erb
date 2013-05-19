@@ -1,0 +1,11 @@
+<%= simple_form_for @equipment, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :description %>
+  <%= f.input :equipment_name %>
+  <%= f.input :equipment_type %>
+  <%= f.input :image %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                equipment_path, :class => 'btn' %>
+  </div>
+<% end %>
