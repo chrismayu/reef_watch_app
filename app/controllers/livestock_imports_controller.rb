@@ -15,7 +15,7 @@ class LivestockImportsController < ApplicationController
 
     respond_to do |format|
       if @livestock_import.save
-        redirect_to livestocks_url, notice: "Imported LiveStock successfully."
+        format.html { redirect_to livestocks_url, notice: "Imported LiveStock successfully."}
          else
            render :new
          end

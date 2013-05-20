@@ -87,4 +87,14 @@ class EquipmentController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  def delete_all
+    Equipment.delete_all
+
+    respond_to do |format|
+      format.html { redirect_to equipment_index_url, notice: 'Equipment Table was erased.'  }
+      format.json { head :no_content }
+    end
+  end
 end

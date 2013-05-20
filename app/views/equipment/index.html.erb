@@ -42,6 +42,12 @@
 
 <p><%= link_to "Import Equipment", new_equipment_import_path %></p>
 
+<%= link_to t('.delete_all', :default => t("helpers.links.destroy all")),
+              delete_all_equipment_index_path,
+              :method => :delete_all,
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-mini btn-danger' %>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_equipment_path,
             :class => 'btn btn-primary' %>

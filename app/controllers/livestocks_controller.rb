@@ -87,11 +87,11 @@ class LivestocksController < ApplicationController
     end
   end
 
-  def destroy_all
+  def delete_all
     Livestock.delete_all
 
     respond_to do |format|
-      format.html { redirect_to livestocks_url }
+      format.html { redirect_to livestocks_url, notice: 'Livestock Table was erased.'  }
       format.json { head :no_content }
     end
   end

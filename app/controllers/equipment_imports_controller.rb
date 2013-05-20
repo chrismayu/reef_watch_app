@@ -16,7 +16,7 @@ class EquipmentImportsController < ApplicationController
 
     respond_to do |format|
       if @equipment_import.save
-        redirect_to equipment_index_url, notice: "Imported Equipment successfully."
+         format.html { redirect_to equipment_index_path, notice: 'Equipment was successfully imported.' }
          else
            render :new
          end

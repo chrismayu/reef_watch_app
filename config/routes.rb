@@ -5,12 +5,17 @@ ReefWatchApp::Application.routes.draw do
   resources :equipment_imports
 
 
-  resources :livestocks  
+  resources :livestocks do
+    collection { post :delete_all}
+  end 
     
 
 
-  resources :equipment  
-
+  resources :equipment  do
+    collection { post :delete_all}
+  end
+   
+ 
 
   resources :reef_tanks
 
