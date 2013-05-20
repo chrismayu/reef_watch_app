@@ -3,7 +3,7 @@ class LivestocksController < ApplicationController
   # GET /livestocks.json
   def index
     #@livestocks = Livestock.all
-    @livestocks = Livestock.paginate(page: params[:page], :per_page => 20)
+    @livestocks = Livestock.paginate(page: params[:page], :per_page => 100)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @livestocks }
