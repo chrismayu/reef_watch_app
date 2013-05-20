@@ -1,8 +1,15 @@
 ReefWatchApp::Application.routes.draw do
-  resources :livestocks
+  resources :livestock_imports
 
 
-  resources :equipment
+  resources :equipment_imports
+
+
+  resources :livestocks  
+    
+
+
+  resources :equipment  
 
 
   resources :reef_tanks

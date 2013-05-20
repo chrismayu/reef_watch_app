@@ -2,6 +2,7 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -36,6 +37,10 @@
     <% end %>
   </tbody>
 </table>
+
+<h2>Import Equipment</h2>
+
+<p><%= link_to "Import Equipment", new_equipment_import_path %></p>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_equipment_path,

@@ -10,6 +10,12 @@ class LivestocksController < ApplicationController
     end
   end
 
+  
+  def import
+    Livestock.import(params[:file])
+    redirect_to root_url, notice: "Livestocks imported."
+  end
+  
   # GET /livestocks/1
   # GET /livestocks/1.json
   def show
@@ -80,4 +86,14 @@ class LivestocksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def destroy_all
+    Livestock.delete_all
+
+    respond_to do |format|
+      format.html { redirect_to livestocks_url }
+      format.json { head :no_content }
+    end
+  end
+
 end

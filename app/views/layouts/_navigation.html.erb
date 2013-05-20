@@ -2,9 +2,15 @@
 <ul class="nav">
  	
 	<li>
-    <%= link_to 'Watch', watchers_path  %>
+    <%= link_to 'RTD', watchers_path  %>
     </li>
-	
+	<li>
+    <%= link_to 'Equipment', equipment_index_path  %>
+    </li>
+	<li>
+    <%= link_to 'LiveStock', livestocks_path  %>
+    </li>
+
   <% if user_signed_in? %>
     <li>
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>

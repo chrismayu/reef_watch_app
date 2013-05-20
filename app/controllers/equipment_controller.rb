@@ -9,6 +9,13 @@ class EquipmentController < ApplicationController
       format.json { render json: @equipment }
     end
   end
+  
+  
+  
+  def import
+    Equipment.import(params[:file])
+    redirect_to root_url, notice: "Equipments imported."
+  end
 
   # GET /equipment/1
   # GET /equipment/1.json
