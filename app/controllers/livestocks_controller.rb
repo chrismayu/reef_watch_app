@@ -2,8 +2,8 @@ class LivestocksController < ApplicationController
   # GET /livestocks
   # GET /livestocks.json
   def index
-    @livestocks = Livestock.all
-
+    #@livestocks = Livestock.all
+    @livestocks = Livestock.paginate(page: params[:page], :per_page => 20)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @livestocks }
@@ -75,8 +75,7 @@ class LivestocksController < ApplicationController
     end
   end
 
-  # DELETE /livestocks/1
-  # DELETE /livestocks/1.json
+
   def destroy
     @livestock = Livestock.find(params[:id])
     @livestock.destroy

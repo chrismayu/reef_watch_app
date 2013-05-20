@@ -2,8 +2,8 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.all
-
+    #@equipment = Equipment.all
+    @equipment = Equipment.paginate(page: params[:page], :per_page => 20)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @equipment }
