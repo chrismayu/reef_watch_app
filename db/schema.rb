@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519231910) do
+ActiveRecord::Schema.define(:version => 20130520027890) do
 
   create_table "equipment", :force => true do |t|
     t.text     "description"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20130519231910) do
     t.boolean  "main_pump"
     t.boolean  "heater"
     t.boolean  "day_light"
+    t.boolean  "ato_pump"
   end
 
 end

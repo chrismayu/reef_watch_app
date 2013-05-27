@@ -1,10 +1,12 @@
 class Watcher < ActiveRecord::Base
-  attr_accessible :params, :temp, :temp_name,  :ambient_temp, :ph_level, :powerhead, :main_pump, :heater, :day_light
+  attr_accessible :params, :ato_pump, :temp, :temp_name,  :ambient_temp, :ph_level, :powerhead, :main_pump, :heater, :day_light
   
   
  default_scope order: 'watchers.created_at DESC'
-  
-  
+  scope :ato_on, last("heater != ?", true)
+   scope :ato, where("heater != ?", true)
+# scope :recent, r("published_at desc")
+ #scope :latest, visible.published.order("published_at desc")
     serialize :params
     after_create :update_temp_info
 
