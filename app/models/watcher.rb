@@ -3,8 +3,8 @@ class Watcher < ActiveRecord::Base
   
   
  default_scope order: 'watchers.created_at DESC'
-  scope :ato_on, last("heater != ?", true)
-   scope :ato, where("heater != ?", true)
+ # scope :ato_on, last("heater != ?", true)
+ #  scope :ato, where("heater != ?", true)
 # scope :recent, r("published_at desc")
  #scope :latest, visible.published.order("published_at desc")
     serialize :params
