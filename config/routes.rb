@@ -1,4 +1,7 @@
 ReefWatchApp::Application.routes.draw do
+  resources :alarm_notifications
+
+
   resources :livestock_imports
 
 

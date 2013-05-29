@@ -1,0 +1,44 @@
+<%- model_class = AlarmNotification -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:tank_name) %></th>
+      <th><%= model_class.human_attribute_name(:alarm_level) %></th>
+      <th><%= model_class.human_attribute_name(:alert_owner) %></th>
+      <th><%= model_class.human_attribute_name(:message_part1) %></th>
+      <th><%= model_class.human_attribute_name(:message_part2) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @alarm_notifications.each do |alarm_notification| %>
+      <tr>
+        <td><%= link_to alarm_notification.id, alarm_notification_path(alarm_notification) %></td>
+        <td><%= alarm_notification.tank_name %></td>
+        <td><%= alarm_notification.alarm_level %></td>
+        <td><%= alarm_notification.alert_owner %></td>
+        <td><%= alarm_notification.message_part1 %></td>
+        <td><%= alarm_notification.message_part2 %></td>
+        <td><%=l alarm_notification.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_alarm_notification_path(alarm_notification), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      alarm_notification_path(alarm_notification),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_alarm_notification_path,
+            :class => 'btn btn-primary' %>

@@ -1,0 +1,12 @@
+<%= simple_form_for @alarm_notification, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :tank_name %>
+  <%= f.input :alarm_level %>
+  <%= f.input :alert_owner %>
+  <%= f.input :message_part1 %>
+  <%= f.input :message_part2 %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                alarm_notifications_path, :class => 'btn' %>
+  </div>
+<% end %>
