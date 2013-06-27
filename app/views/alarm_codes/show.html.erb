@@ -1,0 +1,25 @@
+<%- model_class = AlarmCode -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:tank_name) %>:</strong></dt>
+  <dd><%= @alarm_code.tank_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alarm_code) %>:</strong></dt>
+  <dd><%= @alarm_code.alarm_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:message) %>:</strong></dt>
+  <dd><%= @alarm_code.message %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              alarm_codes_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_alarm_code_path(@alarm_code), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              alarm_code_path(@alarm_code),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

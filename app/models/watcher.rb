@@ -1,6 +1,11 @@
 class Watcher < ActiveRecord::Base
-  attr_accessible :params, :ato_pump, :temp, :temp_name,  :ambient_temp, :ph_level, :powerhead, :main_pump, :heater, :day_light
+  attr_accessible :params, :ato_pump, :chiller, :skimmer, :refuge_light, :code, :temp, :temp_name,  :ambient_temp, :ph_level, :powerhead, :main_pump, :heater, :day_light
   
+  
+  
+  
+  
+  has_many :alarm_codes, :foreign_key => "tank_name"
   
  default_scope order: 'watchers.created_at DESC'
  # scope :ato_on, last("heater != ?", true)

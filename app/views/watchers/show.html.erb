@@ -3,14 +3,55 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:params) %>:</strong></dt>
-  <dd><%= @watcher.params %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:temp_name) %>:</strong></dt>
-  <dd><%= @watcher.temp_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:temp) %>:</strong></dt>
-  <dd><%= @watcher.temp %></dd>
-</dl>
+
+	<dl class="dl-horizontal">
+	  <dt><strong><%= model_class.human_attribute_name(:params) %>:</strong></dt>
+	  <dd><%= @watcher.params %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:temp_name) %>:</strong></dt>
+	  <dd><%= @watcher.temp_name %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:temp) %>:</strong></dt>
+	  <dd><%= @watcher.temp %></dd>
+	  <dt><strong>Auto Top Off Pump:</strong></dt>
+	 <dd><% if @watcher.ato_pump == true %>
+	<span class="label label-success">ON</span>
+	<%else%>    
+	<span class="label label-warning">OFF</span>
+	<%end%></dd>
+	  <dt><strong>House Temp:</strong></dt>
+	  <dd><%= @watcher.ambient_temp %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:powerhead) %>:</strong></dt>
+	  <dd><% if @watcher.powerhead == true %>
+	<span class="label label-success">ON</span>
+	<%else%>    
+	<span class="label label-warning">OFF</span>
+	<%end%></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:ph_level) %>:</strong></dt>
+	  <dd><%= @watcher.ph_level %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:day_light) %>:</strong></dt>
+	  <dd><% if @watcher.day_light == true %>
+	<span class="label label-success">ON</span>
+	<%else%>    
+	<span class="label label-warning">OFF</span>
+	<%end%></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:main_pump) %>:</strong></dt>
+	 <dd><% if @watcher.main_pump == true %>
+	<span class="label label-success">ON</span>
+	<%else%>    
+	<span class="label label-warning">OFF</span>
+	<%end%></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:heater) %>:</strong></dt>
+	 <dd><% if @watcher.heater == true %>
+	<span class="label label-success">ON</span>
+	<%else%>    
+	<span class="label label-warning">OFF</span>
+	<%end%></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:code) %>:</strong></dt>
+	<dd><%= @watcher.code %></dd>
+
+
+	</dl>
+
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

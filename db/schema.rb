@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529142115) do
+ActiveRecord::Schema.define(:version => 20130627141236) do
+
+  create_table "alarm_codes", :force => true do |t|
+    t.string   "tank_name"
+    t.string   "alarm_code"
+    t.text     "message"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.boolean  "sent_email"
+    t.string   "email"
+    t.boolean  "display_site_wide"
+    t.integer  "priority"
+    t.string   "message_2"
+  end
 
   create_table "alarm_notifications", :force => true do |t|
     t.string   "tank_name"
@@ -113,6 +126,10 @@ ActiveRecord::Schema.define(:version => 20130529142115) do
     t.boolean  "heater"
     t.boolean  "day_light"
     t.boolean  "ato_pump"
+    t.boolean  "chiller"
+    t.boolean  "skimmer"
+    t.boolean  "refuge_light"
+    t.string   "code"
   end
 
 end

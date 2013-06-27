@@ -14,9 +14,9 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th>Tank Name</th>
-      <th>Tank Temp</th>
-      <th>House Temp</th>
+      <th>Name</th>
+      <th>Tank</th>
+      <th>House</th>
  
       <th><%= model_class.human_attribute_name(:powerhead) %></th>
       <th><%= model_class.human_attribute_name(:main_pump) %></th>
@@ -35,25 +35,25 @@
         <td><%= number_with_precision(watcher.ambient_temp, :precision => 1)   %>°f</td>
 	
         <td>		 <% if watcher.powerhead  == true %>
-				    <span class="label label-success">PH ON</span>
+				    <span class="label label-success">ON</span>
 					<%else%>	
-					<span class="label label-warning">PH OFF</span>
+					<span class="label label-warning">OFF</span>
 					<%end%>
 		</td></td>
 		<td>
 
 		 <% if watcher.main_pump  == true %>
-		    <span class="label label-success">Pump ON</span>
-			<%else%>	
-			<span class="label label-warning">Pump OFF</span>
+		   	 <span class="label label-success">ON</span>
+				<%else%>	
+				<span class="label label-warning">OFF</span>
 			<%end%>
 </td>
 	<td>
 
 	 <% if watcher.heater  == true %>
-	    <span class="label label-success">Heater ON</span>
-		<%else%>	
-		<span class="label label-warning">Heater OFF</span>
+		 <span class="label label-success">ON</span>
+			<%else%>	
+			<span class="label label-warning">OFF</span>
 		<%end%>
 </td>
 		     <td> <%= time_ago_in_words(watcher.created_at) %> ago </td>

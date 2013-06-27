@@ -5,12 +5,13 @@ class WatchersController < ApplicationController
   protect_from_forgery :except => [:create]
 
    def create
-     Watcher.create!(:params => params, :temp => params[:m_t], :temp_name => params[:t_n], :day_light=> params[:daylight], :powerhead => params[:ph], :ambient_temp => params[:a_t], :main_pump => params[:m_p], :ato_pump => params[:ato], :heater => params[:h]
+     Watcher.create!(:params => params, :temp => params[:m_t],  :skimmer => params[:skim], :code => params[:h_c], :temp_name => params[:t_n], :day_light=> params[:daylight], :powerhead => params[:ph], :ambient_temp => params[:a_t], :main_pump => params[:m_p], :ato_pump => params[:ato], :heater => params[:h]
      )
     render :nothing => true
 
    #  , :day_light=> params[:daylight], :powerhead => params[:powerhead], :ambient_temp => params[:ambient_temp], :ph_level => params[:ph_level, :main_pump => params[:main_pump], :heater => params[:heater]
    
+   #:skimmer => params[:skim],
    
    	#data_collection = Watcher.new(params[:data])
  #  data_collection.save!
@@ -26,8 +27,10 @@ class WatchersController < ApplicationController
   
   def index
    @watcherschart = Watcher.all
+   watcherlast = Watcher.first
    # @watchers = Watcher.all
     @watchers = Watcher.paginate(page: params[:page], :per_page => 20)
+    @alarm_codes = AlarmCode.where(:tank_name => watcherlast.temp_name)
 
     respond_to do |format|
       format.html # index.html.erb

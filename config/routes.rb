@@ -1,4 +1,7 @@
 ReefWatchApp::Application.routes.draw do
+  resources :alarm_codes
+
+
   resources :alarm_notifications
 
 
