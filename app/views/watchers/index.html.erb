@@ -12,7 +12,7 @@
 
 <table class="table table-striped">
   <thead>
-    <tr>
+    <tr> <th>Code:</th>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th>Name</th>
       <th>Tank</th>
@@ -29,6 +29,7 @@
   <tbody>
     <% @watchers.each do |watcher| %>
       <tr>
+     	<td><%= watcher.alarm_codes  %></td>
         <td><%= link_to watcher.id, watcher_path(watcher) %></td>
         <td><%= watcher.temp_name %></td>
         <td><%= number_with_precision(watcher.temp, :precision => 1)   %>°f</td>

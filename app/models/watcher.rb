@@ -5,7 +5,7 @@ class Watcher < ActiveRecord::Base
   
   
   
-  has_many :alarm_codes, :foreign_key => "tank_name"
+  has_many :alarm_codes, :foreign_key => :alarm_code, :primary_key =>  :code
   
  default_scope order: 'watchers.created_at DESC'
  # scope :ato_on, last("heater != ?", true)
