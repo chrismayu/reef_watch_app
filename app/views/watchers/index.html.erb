@@ -29,7 +29,18 @@
   <tbody>
     <% @watchers.each do |watcher| %>
       <tr>
-     	<td><%= watcher.alarm_codes  %></td>
+     	<td><% for alarm_code in watcher.alarm_codes %>
+
+
+			<% if watcher.a_code == alarm_code.h_code %>
+					   <%= alarm_code.message %>
+					 
+						<%end%>
+ 
+	
+	  <% end %>
+	
+	</td>
         <td><%= link_to watcher.id, watcher_path(watcher) %></td>
         <td><%= watcher.temp_name %></td>
         <td><%= number_with_precision(watcher.temp, :precision => 1)   %>°f</td>

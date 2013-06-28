@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627141236) do
+ActiveRecord::Schema.define(:version => 20130628031904) do
 
   create_table "alarm_codes", :force => true do |t|
     t.string   "tank_name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20130627141236) do
     t.boolean  "display_site_wide"
     t.integer  "priority"
     t.string   "message_2"
+    t.integer  "code"
+    t.integer  "h_code"
   end
 
   create_table "alarm_notifications", :force => true do |t|
@@ -130,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20130627141236) do
     t.boolean  "skimmer"
     t.boolean  "refuge_light"
     t.string   "code"
+    t.integer  "a_code"
   end
 
 end
